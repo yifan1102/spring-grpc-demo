@@ -115,9 +115,6 @@
                     <writeDescriptorSet>true</writeDescriptorSet>
 
                     <!-- 额外的protoc参数 -->
-                    <args>
-                        <arg>--descriptor_set_out=${project.build.directory}/proto.desc</arg>
-                    </args>
                 </configuration>
                 <executions>
                     <!-- 编译protobuf消息 -->

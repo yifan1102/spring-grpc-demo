@@ -1,16 +1,14 @@
 package com.earth.service;
 
 
-import com.earth.base.order.NewOrderReply;
-import com.earth.base.order.NewOrderRequest;
-import com.earth.base.order.OrderStatusEnum;
+import com.earth.base.order.*;
 import io.grpc.stub.StreamObserver;
 import lombok.extern.slf4j.Slf4j;
 import net.devh.boot.grpc.server.service.GrpcService;
 
 @Slf4j
 @GrpcService
-public class OrderService extends com.earth.base.order.OrderServiceGrpc.OrderServiceImplBase {
+public class OrderServerService extends com.earth.base.order.OrderServiceGrpc.OrderServiceImplBase {
 
     @Override
     public void createOrder(NewOrderRequest request, StreamObserver<NewOrderReply> responseObserver) {
