@@ -12,7 +12,7 @@ import  "com/earth/base/common/order_common.proto";
 service OrderService{
 
     //创建订单
-    rpc CreateOrder(NewOrderRequest) returns (NewOrderResponse);
+    rpc CreateOrder(NewOrderRequest) returns (NewOrderReply);
 }
 
 
@@ -105,7 +105,7 @@ message NewOrderRequest {
 /*
  * 下单接口响应参数
  */
-message NewOrderResponse {
+message NewOrderReply {
     int64 order_id = 1; // 订单ID
     int64 code=2;
     string message = 3;

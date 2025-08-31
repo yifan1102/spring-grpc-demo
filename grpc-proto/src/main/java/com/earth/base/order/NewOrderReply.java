@@ -10,18 +10,18 @@ package com.earth.base.order;
  * 下单接口响应参数
  * </pre>
  *
- * Protobuf type {@code com.earth.base.order.NewOrderResponse}
+ * Protobuf type {@code com.earth.base.order.NewOrderReply}
  */
-public final class NewOrderResponse extends
+public final class NewOrderReply extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:com.earth.base.order.NewOrderResponse)
-    NewOrderResponseOrBuilder {
+    // @@protoc_insertion_point(message_implements:com.earth.base.order.NewOrderReply)
+    NewOrderReplyOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use NewOrderResponse.newBuilder() to construct.
-  private NewOrderResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use NewOrderReply.newBuilder() to construct.
+  private NewOrderReply(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private NewOrderResponse() {
+  private NewOrderReply() {
     message_ = "";
     crossAvailable_ = "";
     status_ = 0;
@@ -31,20 +31,20 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new NewOrderResponse();
+    return new NewOrderReply();
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.earth.base.order.OrderServiceProto.internal_static_com_earth_base_order_NewOrderResponse_descriptor;
+    return com.earth.base.order.OrderServiceProto.internal_static_com_earth_base_order_NewOrderReply_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.earth.base.order.OrderServiceProto.internal_static_com_earth_base_order_NewOrderResponse_fieldAccessorTable
+    return com.earth.base.order.OrderServiceProto.internal_static_com_earth_base_order_NewOrderReply_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.earth.base.order.NewOrderResponse.class, com.earth.base.order.NewOrderResponse.Builder.class);
+            com.earth.base.order.NewOrderReply.class, com.earth.base.order.NewOrderReply.Builder.class);
   }
 
   public static final int ORDER_ID_FIELD_NUMBER = 1;
@@ -243,10 +243,10 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.earth.base.order.NewOrderResponse)) {
+    if (!(obj instanceof com.earth.base.order.NewOrderReply)) {
       return super.equals(obj);
     }
-    com.earth.base.order.NewOrderResponse other = (com.earth.base.order.NewOrderResponse) obj;
+    com.earth.base.order.NewOrderReply other = (com.earth.base.order.NewOrderReply) obj;
 
     if (getOrderId()
         != other.getOrderId()) return false;
@@ -285,44 +285,44 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static com.earth.base.order.NewOrderResponse parseFrom(
+  public static com.earth.base.order.NewOrderReply parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.earth.base.order.NewOrderResponse parseFrom(
+  public static com.earth.base.order.NewOrderReply parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.earth.base.order.NewOrderResponse parseFrom(
+  public static com.earth.base.order.NewOrderReply parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.earth.base.order.NewOrderResponse parseFrom(
+  public static com.earth.base.order.NewOrderReply parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.earth.base.order.NewOrderResponse parseFrom(byte[] data)
+  public static com.earth.base.order.NewOrderReply parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.earth.base.order.NewOrderResponse parseFrom(
+  public static com.earth.base.order.NewOrderReply parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.earth.base.order.NewOrderResponse parseFrom(java.io.InputStream input)
+  public static com.earth.base.order.NewOrderReply parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.earth.base.order.NewOrderResponse parseFrom(
+  public static com.earth.base.order.NewOrderReply parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -330,26 +330,26 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
-  public static com.earth.base.order.NewOrderResponse parseDelimitedFrom(java.io.InputStream input)
+  public static com.earth.base.order.NewOrderReply parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
 
-  public static com.earth.base.order.NewOrderResponse parseDelimitedFrom(
+  public static com.earth.base.order.NewOrderReply parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.earth.base.order.NewOrderResponse parseFrom(
+  public static com.earth.base.order.NewOrderReply parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.earth.base.order.NewOrderResponse parseFrom(
+  public static com.earth.base.order.NewOrderReply parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -362,7 +362,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.earth.base.order.NewOrderResponse prototype) {
+  public static Builder newBuilder(com.earth.base.order.NewOrderReply prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -383,26 +383,26 @@ private static final long serialVersionUID = 0L;
    * 下单接口响应参数
    * </pre>
    *
-   * Protobuf type {@code com.earth.base.order.NewOrderResponse}
+   * Protobuf type {@code com.earth.base.order.NewOrderReply}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:com.earth.base.order.NewOrderResponse)
-      com.earth.base.order.NewOrderResponseOrBuilder {
+      // @@protoc_insertion_point(builder_implements:com.earth.base.order.NewOrderReply)
+      com.earth.base.order.NewOrderReplyOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.earth.base.order.OrderServiceProto.internal_static_com_earth_base_order_NewOrderResponse_descriptor;
+      return com.earth.base.order.OrderServiceProto.internal_static_com_earth_base_order_NewOrderReply_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.earth.base.order.OrderServiceProto.internal_static_com_earth_base_order_NewOrderResponse_fieldAccessorTable
+      return com.earth.base.order.OrderServiceProto.internal_static_com_earth_base_order_NewOrderReply_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.earth.base.order.NewOrderResponse.class, com.earth.base.order.NewOrderResponse.Builder.class);
+              com.earth.base.order.NewOrderReply.class, com.earth.base.order.NewOrderReply.Builder.class);
     }
 
-    // Construct using com.earth.base.order.NewOrderResponse.newBuilder()
+    // Construct using com.earth.base.order.NewOrderReply.newBuilder()
     private Builder() {
 
     }
@@ -427,17 +427,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.earth.base.order.OrderServiceProto.internal_static_com_earth_base_order_NewOrderResponse_descriptor;
+      return com.earth.base.order.OrderServiceProto.internal_static_com_earth_base_order_NewOrderReply_descriptor;
     }
 
     @java.lang.Override
-    public com.earth.base.order.NewOrderResponse getDefaultInstanceForType() {
-      return com.earth.base.order.NewOrderResponse.getDefaultInstance();
+    public com.earth.base.order.NewOrderReply getDefaultInstanceForType() {
+      return com.earth.base.order.NewOrderReply.getDefaultInstance();
     }
 
     @java.lang.Override
-    public com.earth.base.order.NewOrderResponse build() {
-      com.earth.base.order.NewOrderResponse result = buildPartial();
+    public com.earth.base.order.NewOrderReply build() {
+      com.earth.base.order.NewOrderReply result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -445,14 +445,14 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public com.earth.base.order.NewOrderResponse buildPartial() {
-      com.earth.base.order.NewOrderResponse result = new com.earth.base.order.NewOrderResponse(this);
+    public com.earth.base.order.NewOrderReply buildPartial() {
+      com.earth.base.order.NewOrderReply result = new com.earth.base.order.NewOrderReply(this);
       if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
     }
 
-    private void buildPartial0(com.earth.base.order.NewOrderResponse result) {
+    private void buildPartial0(com.earth.base.order.NewOrderReply result) {
       int from_bitField0_ = bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.orderId_ = orderId_;
@@ -505,16 +505,16 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.earth.base.order.NewOrderResponse) {
-        return mergeFrom((com.earth.base.order.NewOrderResponse)other);
+      if (other instanceof com.earth.base.order.NewOrderReply) {
+        return mergeFrom((com.earth.base.order.NewOrderReply)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.earth.base.order.NewOrderResponse other) {
-      if (other == com.earth.base.order.NewOrderResponse.getDefaultInstance()) return this;
+    public Builder mergeFrom(com.earth.base.order.NewOrderReply other) {
+      if (other == com.earth.base.order.NewOrderReply.getDefaultInstance()) return this;
       if (other.getOrderId() != 0L) {
         setOrderId(other.getOrderId());
       }
@@ -907,23 +907,23 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:com.earth.base.order.NewOrderResponse)
+    // @@protoc_insertion_point(builder_scope:com.earth.base.order.NewOrderReply)
   }
 
-  // @@protoc_insertion_point(class_scope:com.earth.base.order.NewOrderResponse)
-  private static final com.earth.base.order.NewOrderResponse DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:com.earth.base.order.NewOrderReply)
+  private static final com.earth.base.order.NewOrderReply DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.earth.base.order.NewOrderResponse();
+    DEFAULT_INSTANCE = new com.earth.base.order.NewOrderReply();
   }
 
-  public static com.earth.base.order.NewOrderResponse getDefaultInstance() {
+  public static com.earth.base.order.NewOrderReply getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<NewOrderResponse>
-      PARSER = new com.google.protobuf.AbstractParser<NewOrderResponse>() {
+  private static final com.google.protobuf.Parser<NewOrderReply>
+      PARSER = new com.google.protobuf.AbstractParser<NewOrderReply>() {
     @java.lang.Override
-    public NewOrderResponse parsePartialFrom(
+    public NewOrderReply parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -942,17 +942,17 @@ private static final long serialVersionUID = 0L;
     }
   };
 
-  public static com.google.protobuf.Parser<NewOrderResponse> parser() {
+  public static com.google.protobuf.Parser<NewOrderReply> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<NewOrderResponse> getParserForType() {
+  public com.google.protobuf.Parser<NewOrderReply> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.earth.base.order.NewOrderResponse getDefaultInstanceForType() {
+  public com.earth.base.order.NewOrderReply getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

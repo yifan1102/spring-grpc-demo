@@ -4,8 +4,8 @@
 // Protobuf Java Version: 3.25.3
 package com.earth.base.order;
 
-public interface NewOrderResponseOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:com.earth.base.order.NewOrderResponse)
+public interface NewOrderReplyOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:com.earth.base.order.NewOrderReply)
     com.google.protobuf.MessageOrBuilder {
 
   /**

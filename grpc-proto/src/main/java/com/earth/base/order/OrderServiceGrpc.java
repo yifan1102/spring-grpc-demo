@@ -16,28 +16,28 @@ public final class OrderServiceGrpc {
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<com.earth.base.order.NewOrderRequest,
-      com.earth.base.order.NewOrderResponse> getCreateOrderMethod;
+      com.earth.base.order.NewOrderReply> getCreateOrderMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "CreateOrder",
       requestType = com.earth.base.order.NewOrderRequest.class,
-      responseType = com.earth.base.order.NewOrderResponse.class,
+      responseType = com.earth.base.order.NewOrderReply.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<com.earth.base.order.NewOrderRequest,
-      com.earth.base.order.NewOrderResponse> getCreateOrderMethod() {
-    io.grpc.MethodDescriptor<com.earth.base.order.NewOrderRequest, com.earth.base.order.NewOrderResponse> getCreateOrderMethod;
+      com.earth.base.order.NewOrderReply> getCreateOrderMethod() {
+    io.grpc.MethodDescriptor<com.earth.base.order.NewOrderRequest, com.earth.base.order.NewOrderReply> getCreateOrderMethod;
     if ((getCreateOrderMethod = OrderServiceGrpc.getCreateOrderMethod) == null) {
       synchronized (OrderServiceGrpc.class) {
         if ((getCreateOrderMethod = OrderServiceGrpc.getCreateOrderMethod) == null) {
           OrderServiceGrpc.getCreateOrderMethod = getCreateOrderMethod =
-              io.grpc.MethodDescriptor.<com.earth.base.order.NewOrderRequest, com.earth.base.order.NewOrderResponse>newBuilder()
+              io.grpc.MethodDescriptor.<com.earth.base.order.NewOrderRequest, com.earth.base.order.NewOrderReply>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "CreateOrder"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.earth.base.order.NewOrderRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.earth.base.order.NewOrderResponse.getDefaultInstance()))
+                  com.earth.base.order.NewOrderReply.getDefaultInstance()))
               .setSchemaDescriptor(new OrderServiceMethodDescriptorSupplier("CreateOrder"))
               .build();
         }
@@ -100,7 +100,7 @@ public final class OrderServiceGrpc {
      * </pre>
      */
     default void createOrder(com.earth.base.order.NewOrderRequest request,
-        io.grpc.stub.StreamObserver<com.earth.base.order.NewOrderResponse> responseObserver) {
+        io.grpc.stub.StreamObserver<com.earth.base.order.NewOrderReply> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateOrderMethod(), responseObserver);
     }
   }
@@ -138,7 +138,7 @@ public final class OrderServiceGrpc {
      * </pre>
      */
     public void createOrder(com.earth.base.order.NewOrderRequest request,
-        io.grpc.stub.StreamObserver<com.earth.base.order.NewOrderResponse> responseObserver) {
+        io.grpc.stub.StreamObserver<com.earth.base.order.NewOrderReply> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getCreateOrderMethod(), getCallOptions()), request, responseObserver);
     }
@@ -165,7 +165,7 @@ public final class OrderServiceGrpc {
      *创建订单
      * </pre>
      */
-    public com.earth.base.order.NewOrderResponse createOrder(com.earth.base.order.NewOrderRequest request) {
+    public com.earth.base.order.NewOrderReply createOrder(com.earth.base.order.NewOrderRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getCreateOrderMethod(), getCallOptions(), request);
     }
@@ -192,7 +192,7 @@ public final class OrderServiceGrpc {
      *创建订单
      * </pre>
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.earth.base.order.NewOrderResponse> createOrder(
+    public com.google.common.util.concurrent.ListenableFuture<com.earth.base.order.NewOrderReply> createOrder(
         com.earth.base.order.NewOrderRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getCreateOrderMethod(), getCallOptions()), request);
@@ -220,7 +220,7 @@ public final class OrderServiceGrpc {
       switch (methodId) {
         case METHODID_CREATE_ORDER:
           serviceImpl.createOrder((com.earth.base.order.NewOrderRequest) request,
-              (io.grpc.stub.StreamObserver<com.earth.base.order.NewOrderResponse>) responseObserver);
+              (io.grpc.stub.StreamObserver<com.earth.base.order.NewOrderReply>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -245,7 +245,7 @@ public final class OrderServiceGrpc {
           io.grpc.stub.ServerCalls.asyncUnaryCall(
             new MethodHandlers<
               com.earth.base.order.NewOrderRequest,
-              com.earth.base.order.NewOrderResponse>(
+              com.earth.base.order.NewOrderReply>(
                 service, METHODID_CREATE_ORDER)))
         .build();
   }

@@ -21,10 +21,10 @@ public final class OrderServiceProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_earth_base_order_NewOrderRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_earth_base_order_NewOrderResponse_descriptor;
+    internal_static_com_earth_base_order_NewOrderReply_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_earth_base_order_NewOrderResponse_fieldAccessorTable;
+      internal_static_com_earth_base_order_NewOrderReply_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -74,22 +74,22 @@ public final class OrderServiceProto {
       "_SUBSIDY\020\004\022\t\n\005INPUT\020h\022\014\n\010OPPONENT\020i\022\t\n\005Q" +
       "UEUE\020j\022\010\n\004OVER\020k\022\020\n\014MARKET_PRICE\020l\022\021\n\rHE" +
       "DGE_BINANCE\020\016\022\022\n\016ORDINARY_AGENT\020\017\022\021\n\rSPE" +
-      "CIAL_AGENT\020\020\"\222\001\n\020NewOrderResponse\022\020\n\010ord" +
-      "er_id\030\001 \001(\003\022\014\n\004code\030\002 \001(\003\022\017\n\007message\030\003 \001" +
-      "(\t\022\026\n\016crossAvailable\030\004 \001(\t\0225\n\006status\030\005 \001" +
-      "(\0162%.com.earth.base.order.OrderStatusEnu" +
-      "m*\242\002\n\017OrderStatusEnum\022\007\n\003NEW\020\000\022\024\n\020PARTIA" +
-      "LLY_FILLED\020\001\022\n\n\006FILLED\020\002\022\020\n\014DONE_FOR_DAY" +
-      "\020\003\022\014\n\010CANCELED\020\004\022\014\n\010REPLACED\020\005\022\022\n\016PENDIN" +
-      "G_CANCEL\020\006\022\014\n\010REJECTED\020\010\022\r\n\tSUSPENDED\020\t\022" +
-      "\017\n\013PENDING_NEW\020\n\022\016\n\nCALCULATED\020\013\022\013\n\007EXPI" +
-      "RED\020\014\022\030\n\024ACCEPTED_FOR_BIDDING\020\r\022\023\n\017PENDI" +
-      "NG_REPLACE\020\016\022\022\n\016ADMIN_REJECTED\020\017\022\024\n\020EXPI" +
-      "RED_CANCELED\020\0202l\n\014OrderService\022\\\n\013Create" +
-      "Order\022%.com.earth.base.order.NewOrderReq" +
-      "uest\032&.com.earth.base.order.NewOrderResp" +
-      "onseB+\n\024com.earth.base.orderB\021OrderServi" +
-      "ceProtoP\001b\006proto3"
+      "CIAL_AGENT\020\020\"\217\001\n\rNewOrderReply\022\020\n\010order_" +
+      "id\030\001 \001(\003\022\014\n\004code\030\002 \001(\003\022\017\n\007message\030\003 \001(\t\022" +
+      "\026\n\016crossAvailable\030\004 \001(\t\0225\n\006status\030\005 \001(\0162" +
+      "%.com.earth.base.order.OrderStatusEnum*\242" +
+      "\002\n\017OrderStatusEnum\022\007\n\003NEW\020\000\022\024\n\020PARTIALLY" +
+      "_FILLED\020\001\022\n\n\006FILLED\020\002\022\020\n\014DONE_FOR_DAY\020\003\022" +
+      "\014\n\010CANCELED\020\004\022\014\n\010REPLACED\020\005\022\022\n\016PENDING_C" +
+      "ANCEL\020\006\022\014\n\010REJECTED\020\010\022\r\n\tSUSPENDED\020\t\022\017\n\013" +
+      "PENDING_NEW\020\n\022\016\n\nCALCULATED\020\013\022\013\n\007EXPIRED" +
+      "\020\014\022\030\n\024ACCEPTED_FOR_BIDDING\020\r\022\023\n\017PENDING_" +
+      "REPLACE\020\016\022\022\n\016ADMIN_REJECTED\020\017\022\024\n\020EXPIRED" +
+      "_CANCELED\020\0202i\n\014OrderService\022Y\n\013CreateOrd" +
+      "er\022%.com.earth.base.order.NewOrderReques" +
+      "t\032#.com.earth.base.order.NewOrderReplyB+" +
+      "\n\024com.earth.base.orderB\021OrderServiceProt" +
+      "oP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -102,11 +102,11 @@ public final class OrderServiceProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_earth_base_order_NewOrderRequest_descriptor,
         new java.lang.String[] { "AccountId", "ClientOrderId", "SymbolId", "OrderType", "TimeInForce", "Side", "Price", "Quantity", "Amount", "ExchangeId", "MakerFeeRate", "TakerFeeRate", "Leverage", "IsClose", "IsLiquidationOrder", "OrgId", "SignTime", "SignNonce", "SignBroker", "TriggerPrice", "OriginalPrice", "ExtraFlag", "MakerBonusRate", "OrderSource", "BaseRequest", "Deduction", "IntegralNumExpectFrozen", "IntegralNumToUsdtRate", "IntegralNumUsed", "IntegralNumUnfrozen", "IntegralNumRemain", "IsCross", });
-    internal_static_com_earth_base_order_NewOrderResponse_descriptor =
+    internal_static_com_earth_base_order_NewOrderReply_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_com_earth_base_order_NewOrderResponse_fieldAccessorTable = new
+    internal_static_com_earth_base_order_NewOrderReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_earth_base_order_NewOrderResponse_descriptor,
+        internal_static_com_earth_base_order_NewOrderReply_descriptor,
         new java.lang.String[] { "OrderId", "Code", "Message", "CrossAvailable", "Status", });
     com.earth.base.common.OrderCommonProto.getDescriptor();
   }
