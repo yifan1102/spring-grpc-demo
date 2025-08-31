@@ -1,0 +1,97 @@
+syntax = "proto3";
+
+package com.earth.base.common;
+
+
+option java_package = "com.earth.base.common";
+option java_outer_classname = "OrderCommonProto";
+option go_package = "com_earth_base_common";
+option java_multiple_files = true;
+
+
+
+
+message BaseRequest {
+    int64 organization_id = 1; // alias broker_id or org_id
+    int64 request_time = 2;
+    InvokerTypeEnum invoke_type = 3; //用户，券商，券商代表用户
+
+    int64 broker_user_id = 4;
+    int64 account_id = 5;
+
+    enum InvokerTypeEnum {
+        UNKNOWN = 0;
+        USER = 1;
+        ORGANIZATION = 2;
+        AGENT_OF_USER = 3;
+    }
+}
+
+/*
+ * 订单类型。表达了数字货币或其它资产交易中，支持的交易类型。
+ */
+enum OrderTypeEnum {
+    //--交易类型  0 -- 9, 999
+    // 限价单
+    LIMIT = 0;
+    //固定BASE数量的市价单
+    MARKET_OF_BASE = 2;
+    //固定QUOTE数量的市价单
+    MARKET_OF_QUOTE = 3;
+    //MAKER单
+    LIMIT_MAKER = 4;
+
+    //cancel On Match订单，用于做市, 仅用于提供行情
+    COM = 5;
+    //现价止损单，即计划委托单
+    STOP_LIMIT = 6;
+    //只做本地成交的订单类型。 与LIMIT一样。 但在聚合场景中的时候，不在外部撮合
+    LOCAL_ONLY = 7;
+    // 特殊做市订单类型（下单不会锁余额）
+    LIMIT_FREE = 8;
+    // 特殊做市订单类型（下单不会锁余额）
+    LIMIT_MAKER_FREE = 9;
+
+    // 普通止盈止损订单类型
+    STOP = 10;
+}
+
+
+/*
+ * 订单子类型
+ *
+ * GTC （取消前有效） - 取消前有效定单将在系统内和市场上一直工作到被执行或被取消。 GTC定单将在以下情况发生时被自动取消：
+ *     如果某个证券的公司活动引起股票分股（正向或反向），股票交换、或股票分配。
+ *     如果你在90 天内没有登录你的IB%COMPANY_ACRONYM% 账户。
+ *     在当前季度后的下一个日历季度末。例如，一个在2011年第三季度内下的定单将在2012年第一季度末被取消。如果最后一天为非交易日，取消将发生在该季度内最后交易日结束时。例如，如果季度的最后一天是周日，则定单将在之前的周五被取消。
+ *     修改过的定单将被指定一个新的“自动过期”日期与在当前季度后的日历季度末的原则保持一致。
+ *
+ * FOK （全数执行或立即取消） - 如果整个全数执行或立即取消定单没有在其成为可交易时被立即执行，则整个定单被取消。
+ *
+ * IOC （立刻执行或取消） - 任何立即执行或取消 定单的未执行部分只要一旦在市场上成为可交易的即被立即取消。
+ *
+ * GTM  (撮合成功则取消) - 如果与其他账户撮合成功则取消订单
+ */
+enum OrderTimeInForceEnum {
+    GTC = 0; // 取消前有效
+    FOK = 1; // 全数执行或立即取消
+    IOC = 2; // 立刻执行或取消
+    GTD = 3; // 指定日期前有效
+    Today = 4; // 日内订单
+    GTM = 100; // 撮合成功则取消
+}
+
+enum OrderSideEnum {
+    BUY = 0;
+    SELL = 1;
+    UNKNOWN_SIDE = 2;
+}
+
+
+message Decimal {
+    string str = 1;          // 原始字符串，比如 "123.45"
+    int64 unscaled_value = 2; // 去掉小数点的整数，比如 12345
+    int32 scale = 3;          // 小数位数，比如 2
+}
+
+

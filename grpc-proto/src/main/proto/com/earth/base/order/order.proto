@@ -1,0 +1,139 @@
+syntax = "proto3";
+
+package com.earth.base.order;
+
+option java_multiple_files=true;
+option java_package = "com.earth.base.order";
+option java_outer_classname="OrderServiceProto";
+//告诉 Protocol Buffers 编译器在生成 Java 代码时，将每个 message 和 service 放到不同的 .java 文件里
+import  "com/earth/base/common/order_common.proto";
+
+
+service OrderService{
+
+    //创建订单
+    rpc CreateOrder(NewOrderRequest) returns (NewOrderResponse);
+}
+
+
+
+/**
+ * 下单接口请求参数
+*/
+message NewOrderRequest {
+
+    int64 account_id = 1; // 交易账户ID，必须字段
+    string client_order_id = 2; // 客户端订单ID，可选字段
+    string symbol_id = 3; // 币对，必须字段
+    com.earth.base.common.OrderTypeEnum order_type = 4; // 订单类型，必须字段
+    com.earth.base.common.OrderTimeInForceEnum time_in_force = 5; // how long will the order remain active
+    com.earth.base.common.OrderSideEnum side = 6; // 订单方向
+    com.earth.base.common.Decimal price = 7; // 买入数量(根据订单方向填充字段),22位整数10位小数, Java中转换为BigDecimal(以下略)
+    com.earth.base.common.Decimal quantity = 8; // 卖出手数(根据订单方向填充字段)
+    com.earth.base.common.Decimal amount = 9; //
+    int64 exchange_id = 10;
+    // maker 适用费率， 后期该费率， 由前端设置好后， 再传过来
+    com.earth.base.common.Decimal maker_fee_rate = 11;
+    // taker 适用费率 , 后期该费率， 由前端设置好后， 再传过来
+    com.earth.base.common.Decimal taker_fee_rate = 12;
+    com.earth.base.common.Decimal leverage = 13; // 杠杆（目前至针对期货使用）
+    bool is_close = 14; // 是否是平仓单
+    bool is_liquidation_order = 15; // 是否是系统强平单
+    int64 org_id = 16;
+    int64 sign_time = 17; // 请求时间(UTC)到秒, 如2018-10-10 00:00:00
+    string sign_nonce = 18; // 不重复的字符串,类uuid
+    string sign_broker = 19;
+    com.earth.base.common.Decimal trigger_price = 20; //stop-limit order: trigger_price
+
+    //订单的原始价格，当SecurityType = 合约，且是反向合约时，要传入原始价格
+    com.earth.base.common.Decimal original_price = 21;
+
+    //下单请求时传入的额外的flag， 默认为0。为了考虑下单时可能需要的一些额外的
+    //要求，可以通过设置该置表达。
+    ExtraFlagEnum   extra_flag = 22;
+
+
+    com.earth.base.common.Decimal maker_bonus_rate = 23;
+    int64 order_source = 24;
+
+    com.earth.base.common.BaseRequest base_request = 100;
+
+    string deduction = 26;  // 抵扣方式。""-不抵扣;score-积分抵扣；experienceAmount-体验金抵扣
+    int64 integral_num_expect_frozen = 27;   // 预扣冻结抵用手续费的积分数量
+    com.earth.base.common.Decimal integral_num_to_usdt_rate = 28; // 积分对USDT比例快照
+    int64 integral_num_used = 29;   // 已使用积分数量
+    int64 integral_num_unfrozen = 30;   // 撤销解冻积分数量
+    int64 integral_num_remain = 31;   // 剩余可用积分数量
+
+    bool isCross = 25;
+
+    enum ExtraFlagEnum{
+        //缺省, 可以不进行赋值
+        DEFAULT = 0;
+        //该订单是平台生成的订单，针对外部撮合而生成的maker单
+        FOR_EXTERNAL_MATCHED_ORDER = 1;
+        //该订单由撮合生成的订单，为爆仓时候的强平单
+        LIQUI_IOC_ORDER = 2;
+        //该订单由撮合生成的订单，为爆仓时候的减仓单
+        LIQUI_ADL_ORDER = 3;
+        //在新撮合中通过手续贯补贴生成的订单
+        FOR_MATCHED_SUBSIDY = 4;
+
+        // ------ 期货下单类型扩展，如有疑问请与 徐铭/梁松 联系 ------ //
+        //用户输入价
+        INPUT = 104;
+        //对手价
+        OPPONENT = 105;
+        //排队价
+        QUEUE = 106;
+        //超价
+        OVER = 107;
+        //市价
+        MARKET_PRICE = 108;
+
+        // 外部对冲消息, 因为外部对冲的订单是由撮合生成的.所以需要标识改消息类型,到future或者spot后创建该订单.
+        HEDGE_BINANCE = 14;
+
+        // 普通代理吃单
+        ORDINARY_AGENT = 15;
+
+        // 特别代理吃单
+        SPECIAL_AGENT = 16;
+    }
+}
+
+/*
+ * 下单接口响应参数
+ */
+message NewOrderResponse {
+    int64 order_id = 1; // 订单ID
+    int64 code=2;
+    string message = 3;
+
+    string crossAvailable = 4;
+    OrderStatusEnum status = 5; // 订单状态，必须字段
+
+}
+
+
+enum OrderStatusEnum {
+    NEW = 0; // 订单已创建
+    PARTIALLY_FILLED = 1; // 部分成交
+    FILLED = 2; // 完全成交
+    DONE_FOR_DAY = 3; // Order Done for Day may be sent when a Day order is unfilled or partially filled at the end of the trading day and no further executions will be sent before the order is canceled
+    CANCELED = 4; // 已取消(手动撤销)
+    REPLACED = 5;
+    PENDING_CANCEL = 6; // 取消中
+    REJECTED = 8; // 已拒绝（系统拒绝）
+    SUSPENDED = 9;
+    // 保留字段
+    PENDING_NEW = 10; // 内部保留
+    CALCULATED = 11;
+    EXPIRED = 12; // Order expired may be sent when a Good Til Date (GTD) order reaches its expiration date or a Good Til Cancel (GTC) order reaches its maximum age. That maximum age may be broker-specific and even unspecified
+    ACCEPTED_FOR_BIDDING = 13;
+    PENDING_REPLACE = 14;
+    ADMIN_REJECTED = 15; //管理员拒绝
+    EXPIRED_CANCELED=16;//时效性过期，取消
+}
+
+
