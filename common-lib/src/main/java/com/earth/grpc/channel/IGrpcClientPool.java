@@ -132,13 +132,6 @@ public interface IGrpcClientPool {
     void shutdown();
 
 
-
-    interface ClientConfigCallback {
-
-        void customClientConfig(ManagedChannelBuilder<?> builder);
-
-    }
-
     @Builder
     @EqualsAndHashCode(of = {"channelName", "host", "port"})
     @Getter
@@ -196,7 +189,6 @@ public interface IGrpcClientPool {
             NotAvailable
 
         }
-
     }
 
 }
